@@ -1,39 +1,84 @@
 <script setup>
+import { ref } from 'vue';
 
+import CartPlus from 'vue-material-design-icons/CartPlus.vue';
+import Account from 'vue-material-design-icons/Account.vue';
 
 </script>
 
 <template>
-    <footer>
-        <div class="footer">
+    <header>
+      <div class="header--logo">
         <img src="@/assets/logoFakeStore.png" alt="Logo" />
-        <h1>FakeStore</h1>
-        <div>
-        Home
+        
       </div>
-      <div>
-        Suporte
+      
+      <div class="header--icons">
+        <Account />
+        <CartPlus />
+        
       </div>
-      <div>
-        Contatos
-      </div>
-      </div>
-    </footer>
-</template>
-
+    </header>
+  </template>
 <style scoped>
-.footer {
+header {
+  background: #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  padding: 0.2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(226, 123, 195);
+}
+
+.header--logo {
   display: flex;
   align-items: center;
 }
-.footer img {
+.header--logo img {
   width: 3rem;
   height: 3rem;
   margin-right: 0.5rem;
 }
-
-.footer{
-    background-color: rgb(184, 122, 142);
+nav ul {
+  display: flex;
+  gap: 1rem;
+}
+nav li {
+  list-style: none;
 }
 
+.header--icons {
+  display: flex;
+  gap: 2rem;
+
+}
+.menu-hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  .menu-hamburger {
+    display: block;
+  }
+
+  nav .menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 10px;
+    right: 0;
+    text-align: right;
+    padding: 10px 16px;
+  }
+  nav .menu li {
+    display: block;
+    margin-top: 12px;
+  }
+}
 </style>
